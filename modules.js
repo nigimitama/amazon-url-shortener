@@ -1,13 +1,35 @@
-function writeOutput() {
+function runShortener() {
+  removeOutput();
+  var url = document.forms.inputForm.textBox.value;
+  if ((url === null) || (url === '')) {
+    notifyError();
+  } else {
+    writeOutput();
+  }
+}
+
+function removeOutput() {
   var target = document.getElementById('output');
-  if (target != null) {
+  if (target !== null) {
     target.remove();
     var copyButton = document.getElementById('copyButton');
     copyButton.remove();
+    var notifyCopied = document.getElementById('notifyCopied');
+    if (notifyCopied !== null) {
+      notifyCopied.remove();
+    }
   }
+  var notifyError = document.getElementById('notifyError');
+  if (notifyError !== null) {
+    notifyError.remove();
+  }
+}
+
+function writeOutput() {
+  const url = document.forms.inputForm.textBox.value;
+  const shortUrl = shortenUrls(url);
   target = createOutputTarget();
-  var url = document.forms.inputForm.textBox.value;
-  target.value = shortenUrl(url);
+  target.value = shortUrl;
   createCopyButton();
 }
 
@@ -43,7 +65,18 @@ function copyToClipboard() {
 function notifyCopied() {
   var outputArea = document.getElementById("outputArea");
   var p = document.createElement('p');
+  p.setAttribute('id', 'notifyCopied');
   outputArea.appendChild(p);
   p.innerText = 'copied!';
 }
+
+
+function notifyError() {
+  var outputArea = document.getElementById("outputArea");
+  var p = document.createElement('p');
+  p.setAttribute('id', 'notifyError');
+  outputArea.appendChild(p);
+  p.innerText = 'Error: wrong input';
+}
+
 

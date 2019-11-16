@@ -1,19 +1,27 @@
 function shortenUrls(url) {
   var urls = url.replace(/http.?:\/\//g, 'https://').split('https://');
-  urls = urls.map(url => shortenUrl);
-  return urls.join('\n');
+  urls = urls.filter(url => url !== '');
+  urls = urls.map(url => shortenUrl('https://'+url));
+  urls = urls.join('\n');
+  return urls;
 }
+
 
 function shortenUrl(url) {
   const domain = getDomain(url);
   const asin = getAsin(url);
-  return domain + asin;
+  if ((domain === null) || (asin === null)) {
+    return null;
+  } else {
+    return domain + asin;
+  } 
 }
 
-
 function getDomain(url) {
-  var domain = url.match(/http.?:\/\/(www.)?amazon[\w\.]+\//g)[0];
-  domain = domain.replace('www.', '').replace(/\/$/g, '');
+  var domain = url.match(/http.?:\/\/(www.)?amazon[\w\.]+\//g);
+  if (domain !=== null) {
+    domain = domain[0].replace('www.', '').replace(/\/$/g, '');
+  }  
   return domain;
 }
 
