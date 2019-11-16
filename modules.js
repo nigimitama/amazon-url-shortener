@@ -40,6 +40,7 @@ function writeOutput() {
 function createOutputTarget() {
   var target = document.createElement('textarea');
   target.setAttribute('id', 'output');
+  target.setAttribute('style', 'resize: both;');
   target.classList.add('form-control');
   var outputArea = document.getElementById("outputArea");
   outputArea.appendChild(target);
