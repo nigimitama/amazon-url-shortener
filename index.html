@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Amazon URL Shortener</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="modules.js"></script>
+    <script type="text/javascript" src="shortener.js"></script>
+  <script type="text/javascript" language="javascript">
+
+  </script> 
+  </head>
+  <body>
+    <div class="container m-5">
+      <header>
+        <h1 class="text-center">Amazon URL Shortener</h1>
+      </header>
+
+      <main>
+        <div class="mx-auto my-5" style="width: 500px;">
+          <form name="inputForm" id="inputForm" action="" class="form-inline my-3">
+            <div class="row mx-auto">
+              <div class="form-group col-md my-1">
+                <textarea name="textBox" id="textBox" type="text" value="" placeholder="Enter Amazon URL here" style="width: 500px;" class="form-control"></textarea>
+              </div>
+              <div class="col-md">
+                <input type="button" value="Submit" onclick="writeOutput();" class="btn btn-primary">
+              </div>
+            </div>
+          </form>
+          <hr/>
+          <div class="row mx-auto">
+            <div id="outputArea" class="col-md text-center">
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p class="text-center">
+          Created by <a href='https://github.com/nigimitama' target='_blank'>mitama</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
