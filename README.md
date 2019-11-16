@@ -1,10 +1,12 @@
 # Amazon URL Shortener
 
-shorten Amazon product URL.
+A website shorten URL(s) of Amazon.com
 
  https://nigimitama.github.io/amazon-url-shortener/ 
 
 
 
-![](misc/demo.gif)
+## demo
+
+![](img/demo.gif)
 
