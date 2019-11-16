@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="mx-auto" style="width: 500px;">
+  <form action="/post" method="post" class="form-inline">
+    <input type="text" class="form-control" id="url" name="url" placeholder="Enter Amazon URL">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<table class="table">
+  <tr>
+    {% for short_url in short_urls %}
+      <td>{{ short_url }}</td>
+    {% endfor %}
+  </tr>
+</table>
+{% endblock %}
