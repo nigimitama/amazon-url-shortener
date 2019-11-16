@@ -2,7 +2,7 @@ function runShortener() {
   removeOutput();
   var url = document.forms.inputForm.textBox.value;
   if ((url === null) || (url === '')) {
-    notifyError();
+    notifyError('Please Enter Amazon Url');
   } else {
     writeOutput();
   }
@@ -29,7 +29,7 @@ function writeOutput() {
   const url = document.forms.inputForm.textBox.value;
   const shortUrl = shortenUrls(url);
   if ((shortUrl === null) || (shortUrl === '')) {
-    notifyError();
+    notifyError('Error: wrong input');
   } else {
     target = createOutputTarget();
     target.value = shortUrl;
@@ -75,12 +75,12 @@ function notifyCopied() {
 }
 
 
-function notifyError() {
+function notifyError(message) {
   var outputArea = document.getElementById("outputArea");
   var p = document.createElement('p');
   p.setAttribute('id', 'notifyError');
   outputArea.appendChild(p);
-  p.innerText = 'Error: wrong input';
+  p.innerText = message;
 }
 
 
