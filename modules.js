@@ -2,7 +2,7 @@ function runShortener() {
   removeOutput();
   var url = document.forms.inputForm.textBox.value;
   if ((url === null) || (url === '')) {
-    notifyError('Please Enter Amazon Url');
+    notifyError('Please Enter Url(s) of Amazon.com');
   } else {
     writeOutput();
   }
