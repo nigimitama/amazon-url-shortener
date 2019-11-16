@@ -19,17 +19,20 @@ function shortenUrl(url) {
 
 function getDomain(url) {
   var domain = url.match(/http.?:\/\/(www.)?amazon[\w\.]+\//g);
-  if (domain !=== null) {
-    domain = domain[0].replace('www.', '').replace(/\/$/g, '');
+  if (domain !== null) {
+    domain = domain[0].replace('www.', '').replace(/\/$/g, '').replace('co.jp', 'jp');
   }  
   return domain;
 }
 
 function getAsin(url) {
   var url = url.replace(/\/gp\/product\//g, '/dp/').replace('/ASIN/', '/dp/');
-  var asin = url.match(/\/dp\/[\d\w]+/g)[0];
-  if (asin.search(/\/$/g) === -1) {
-    asin += '/'; 
+  var asin = url.match(/\/dp\/[\d\w]+/g);
+  if (asin !== null) {
+    asin = asin[0];
+    if (asin.search(/\/$/g) === -1) {
+      asin += '/'; 
+    }
   }
   return asin;
 }

@@ -28,9 +28,13 @@ function removeOutput() {
 function writeOutput() {
   const url = document.forms.inputForm.textBox.value;
   const shortUrl = shortenUrls(url);
-  target = createOutputTarget();
-  target.value = shortUrl;
-  createCopyButton();
+  if ((shortUrl === null) || (shortUrl === '')) {
+    notifyError();
+  } else {
+    target = createOutputTarget();
+    target.value = shortUrl;
+    createCopyButton();
+  }
 }
 
 function createOutputTarget() {
