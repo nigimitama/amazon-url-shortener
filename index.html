@@ -44,7 +44,14 @@
             </div>
           </div>
           <div class="row mx-auto my-2">
-            <div id="outputArea" class="col-md text-center">
+            <div id="resultArea" class="col-md text-center" hidden>
+              <textarea id="result" style="resize: both;" class="form-control"></textarea>
+              <button onclick="copyToClipboard()" id="copyButton" class="btn btn-light my-1">copy</button>
+            </div>
+          </div>
+          <div class="row mx-auto my-2">
+            <div id="messageArea" class="col-md text-center" hidden>
+                <p id="message"></p>
             </div>
           </div>
         </div>
