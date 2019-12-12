@@ -20,7 +20,7 @@ function shortenUrl(url) {
 function getDomain(url) {
   var domain = url.match(/http.?:\/\/(www.)?amazon[\w\.]+\//g);
   if (domain !== null) {
-    domain = domain[0].replace('www.', '').replace(/\/$/g, '').replace('co.jp', 'jp');
+    domain = domain[0].replace('www.', '').replace(/\/$/g, '');
   }  
   return domain;
 }
