@@ -26,8 +26,14 @@ function getDomain(url) {
 }
 
 function getAsin(url) {
-  var url = url.replace(/\/gp\/product\//g, '/dp/').replace('/ASIN/', '/dp/');
-  var asin = url.match(/\/dp\/[\d\w]+/g);
+  var asin;
+  const isMobile = (url.match(/\/gp\/aw\/d\//g) !== null);
+  if (isMobile) {
+    asin = url.match(/\/gp\/aw\/d\/[\d\w]+/g);
+  } else {
+    url = url.replace(/\/gp\/product\//g, '/dp/').replace('/ASIN/', '/dp/');
+    asin = url.match(/\/dp\/[\d\w]+/g);
+  }
   if (asin !== null) {
     asin = asin[0];
     if (asin.search(/\/$/g) === -1) {
